@@ -1,0 +1,5 @@
+fastapi==0.111.0
+Flask==3.0.3
+pydantic==2.7.1
+python-dotenv==1.0.1
+Requests==2.31.0
