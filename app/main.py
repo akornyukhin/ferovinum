@@ -10,6 +10,7 @@ app = FastAPI()
 def run_transport_job(job_data: TransportJob):
     transport_job = TransportJob(job_data)
     transport_job.run_job()
+    print(f"{transport_job.jobId} was done")
 
 
 def execute_long_running_job(job_data):
