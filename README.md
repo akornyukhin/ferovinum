@@ -33,4 +33,7 @@ For Postman request body:
     "destination": "B",
     "collectionTime": "19/05/2024 7:01:43"
 }
+
+# To run tests
+`python -m pytest`
 ```

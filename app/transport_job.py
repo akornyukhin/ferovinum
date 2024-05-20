@@ -48,7 +48,6 @@ class TransportJob():
                 return response_data["jobId"], response_data["collectionTime"]
 
     def release_stock(self):
-
         response = requests.post(
             base_url + f"/warehouse/{self.origin}/release",
             json={
@@ -64,6 +63,7 @@ class TransportJob():
             response = requests.get(
                 base_url + f"/carrier/job/{self.jobId}/status"
             )
+
             if response.json()["status"] == "RELEASED":
                 return response.json()
 
@@ -75,6 +75,7 @@ class TransportJob():
                 base_url +
                 f"/warehouse/{self.destination}/product/{self.productId}/status",
             )
+
             if response.json()["status"] == "LANDED":
                 return response.json()
 
@@ -91,7 +92,7 @@ class TransportJob():
         file_name = f"collection-confirmation-{self.jobId}.json"
         with open(f"./data/{file_name}", "w") as file:
             json.dump({
-                "productsId": self.productId,
+                "productId": self.productId,
                 "quantity": self.quantity,
                 "collectionTime": self.collectionTime
             }, file, indent=4)
